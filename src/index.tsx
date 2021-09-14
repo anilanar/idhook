@@ -1,4 +1,4 @@
-import { nanoid } from "nanoid";
+import { nanoid } from "nanoid/non-secure";
 import { useRef } from "react";
 
 export const useUniqueId = (): ((key: string) => string) => {
