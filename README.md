@@ -1,6 +1,7 @@
 # idhook
 
-> Create unique ids to use in your HTML with a very intuitive API.
+> Generate unique ids to use in your HTML with a very intuitive API.
+
 
 [![NPM](https://img.shields.io/npm/v/idhook.svg)](https://www.npmjs.com/package/idhook) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -30,6 +31,10 @@ const App = () => {
   );
 };
 ```
+
+## Typescript
+
+Works out of the box.
 
 ## License
 

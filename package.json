@@ -1,7 +1,7 @@
 {
   "name": "idhook",
   "version": "1.0.0",
-  "description": "Create unique ids to use in your HTML with a very intuitive API.",
+  "description": "Generate unique ids to use in your HTML with a very intuitive API.",
   "author": "anilanar",
   "license": "MIT",
   "repository": "anilanar/idhook",
