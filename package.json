@@ -1,6 +1,6 @@
 {
   "name": "idhook",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate unique ids to use in your HTML with a very intuitive API.",
   "keywords": [
     "react",
