@@ -7,10 +7,10 @@ const App = () => {
   return (
     <form>
       <label htmlFor={id("name")}>Name</label>
-      <input name="name" htmlFor={id("name")} />
+      <input id={id("name")} name="name" />
 
       <label htmlFor={id("email")}>Name</label>
-      <input name="email" htmlFor={id("email")} />
+      <input id={id("email")} name="email" />
     </form>
   );
 };

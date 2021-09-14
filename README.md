@@ -2,7 +2,6 @@
 
 > Generate unique ids to use in your HTML with a very intuitive API.
 
-
 [![NPM](https://img.shields.io/npm/v/idhook.svg)](https://www.npmjs.com/package/idhook) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
@@ -23,10 +22,10 @@ const App = () => {
   return (
     <form>
       <label htmlFor={id("name")}>Name</label>
-      <input name="name" htmlFor={id("name")} />
+      <input id={id("name")} name="name" />
 
       <label htmlFor={id("email")}>Name</label>
-      <input name="email" htmlFor={id("email")} />
+      <input id={id("email")} name="email" />
     </form>
   );
 };
