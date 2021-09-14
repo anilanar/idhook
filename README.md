@@ -13,18 +13,22 @@ npm install --save idhook
 ## Usage
 
 ```tsx
-import * as React from 'react'
+import React from "react";
 
-import { useMyHook } from 'idhook'
+import { useUniqueId } from "idhook";
 
-const Example = () => {
-  const example = useMyHook()
+const App = () => {
+  const id = useUniqueId();
   return (
-    <div>
-      {example}
-    </div>
-  )
-}
+    <form>
+      <label htmlFor={id("name")}>Name</label>
+      <input name="name" htmlFor={id("name")} />
+
+      <label htmlFor={id("email")}>Name</label>
+      <input name="email" htmlFor={id("email")} />
+    </form>
+  );
+};
 ```
 
 ## License

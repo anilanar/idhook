@@ -1,29 +1,43 @@
-import { useMyHook } from './'
-import { renderHook, act } from "@testing-library/react-hooks";
+import { useUniqueId } from "./index";
+import { renderHook } from "@testing-library/react-hooks";
 
-// mock timer using jest
-jest.useFakeTimers();
-
-describe('useMyHook', () => {
-  it('updates every second', () => {
-    const { result } = renderHook(() => useMyHook());
-
-    expect(result.current).toBe(0);
-
-    // Fast-forward 1sec
-    act(() => {
-      jest.advanceTimersByTime(1000);
+describe("useUniqueId", () => {
+  it("returns the same id accross rerenders", () => {
+    const { result, rerender } = renderHook(() => {
+      const id = useUniqueId();
+      return id("foo");
     });
 
-    // Check after total 1 sec
-    expect(result.current).toBe(1);
+    const firstRender = result.current;
 
-    // Fast-forward 1 more sec
-    act(() => {
-      jest.advanceTimersByTime(1000);
+    rerender();
+
+    const secondRender = result.current;
+
+    expect(secondRender).toBe(firstRender);
+  });
+
+  it("returns different ids for different keys", () => {
+    const { result } = renderHook(() => {
+      const id = useUniqueId();
+      return {
+        foo: id("foo"),
+        bar: id("bar"),
+      };
     });
 
-    // Check after total 2 sec
-    expect(result.current).toBe(2);
-  })
-})
+    const { foo, bar } = result.current;
+    expect(foo).not.toBe(bar);
+  });
+
+  it("scopes hook instances", () => {
+    const { result } = renderHook(() => {
+      const id1 = useUniqueId();
+      const id2 = useUniqueId();
+      return [id1("foo"), id2("foo")] as const;
+    });
+
+    const [first, second] = result.current;
+    expect(first).not.toBe(second);
+  });
+});

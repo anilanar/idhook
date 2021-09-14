@@ -1,23 +1,15 @@
-import * as React from 'react';
+import { nanoid } from "nanoid";
+import { useRef } from "react";
 
-export const useMyHook = () => {
-  let [{
-    counter
-  }, setState] = React.useState<{
-    counter: number;
-  }>({
-    counter: 0
-  });
-
-  React.useEffect(() => {
-    let interval = window.setInterval(() => {
-      counter++;
-      setState({counter})
-    }, 1000)
-    return () => {
-      window.clearInterval(interval);
-    };
-  }, []);
-
-  return counter;
+export const useUniqueId = (): ((key: string) => string) => {
+  const mapRef = useRef<Map<string, string>>(new Map());
+  return (key) => {
+    const val = mapRef.current.get(key);
+    if (val === undefined) {
+      const val = nanoid();
+      mapRef.current.set(key, val);
+      return val;
+    }
+    return val;
+  };
 };

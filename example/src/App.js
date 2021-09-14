@@ -1,13 +1,18 @@
-import React from 'react'
+import React from "react";
 
-import { useMyHook } from 'idhook'
+import { useUniqueId } from "idhook";
 
 const App = () => {
-  const example = useMyHook()
+  const id = useUniqueId();
   return (
-    <div>
-      {example}
-    </div>
-  )
-}
-export default App
+    <form>
+      <label htmlFor={id("name")}>Name</label>
+      <input name="name" htmlFor={id("name")} />
+
+      <label htmlFor={id("email")}>Name</label>
+      <input name="email" htmlFor={id("email")} />
+    </form>
+  );
+};
+
+export default App;
