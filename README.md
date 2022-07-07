@@ -1,3 +1,7 @@
+# React 18 released `useId`, which replaces `idhook`. You don't need this anymore.
+
+---------
+
 # idhook
 
 > Generate unique ids to use in your HTML with a very intuitive API.
